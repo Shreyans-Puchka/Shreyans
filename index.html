@@ -1,15 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shreyans.AG</title>
-    <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#4285F4">
-<link rel="apple-touch-icon" href="icon-192.png">
     <style>
-        /* Reset default browser spacing */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -22,86 +17,71 @@
             flex-direction: column;
             height: 100vh;
             justify-content: space-between;
+            background-color: #ffffff;
         }
 
-        /* Top Navigation Bar */
         header {
             display: flex;
             justify-content: flex-end;
-            padding: 15px 20px;
+            padding: 15px;
         }
 
-        header a {
-            text-decoration: none;
-            color: #202124;
-            font-size: 13px;
-            margin-left: 15px;
+        .nav-links {
             display: flex;
             align-items: center;
+            gap: 15px;
         }
 
-        header a:hover {
+        .nav-links a {
+            text-decoration: none;
+            color: #000000;
+            font-size: 13px;
+        }
+
+        .nav-links a:hover {
             text-decoration: underline;
         }
 
-        /* Sign In Button */
-        .sign-in-btn {
-            background-color: #1a73e8;
-            color: white;
-            padding: 9px 23px;
-            border-radius: 4px;
-            font-weight: 500;
-        }
-
-        .sign-in-btn:hover {
-            background-color: #1557b0;
-            text-decoration: none;
-        }
-
-        /* Main Search Container */
-        main {
+        .main-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             flex-grow: 1;
-            padding-bottom: 100px; /* Shifts layout slightly up like real Google */
+            justify-content: center;
+            margin-top: -50px;
         }
 
-        /* Shreyans.AG Logo Text Colors */
         .logo {
             font-size: 90px;
             font-weight: 500;
-            letter-spacing: -3px;
-            margin-bottom: 25px;
+            letter-spacing: -2px;
+            margin-bottom: 30px;
             user-select: none;
         }
-        .g1 { color: #4285F4; }
-        .o1 { color: #EA4335; }
-        .o2 { color: #FBBC05; }
-        .g2 { color: #4285F4; }
-        .l  { color: #34A853; }
-        .e  { color: #EA4335; }
 
-        /* Search Form & Box */
+        /* Google branding colors for Shreyans.AG */
+        .b-blue { color: #4285F4; }
+        .b-red { color: #EA4335; }
+        .b-yellow { color: #FBBC05; }
+        .b-green { color: #34A853; }
+
         .search-form {
             width: 100%;
             max-width: 584px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding: 0 20px;
         }
 
         .search-box {
             display: flex;
             width: 100%;
-            border: 1px solid #dfe1e5;
+            border: 1px solid #e4e4e4;
             border-radius: 24px;
-            padding: 0 15px;
-            height: 46px;
+            padding: 10px 14px;
             align-items: center;
-            background: white;
-            transition: box-shadow 0.1s;
+            background: #fff;
         }
 
         .search-box:hover, .search-box:focus-within {
@@ -109,25 +89,25 @@
             border-color: rgba(223,225,229,0);
         }
 
-        /* Search Icon */
         .search-icon {
             color: #9aa0a6;
             margin-right: 10px;
-            font-size: 16px;
+            width: 20px;
+            height: 20px;
         }
 
-        .search-box input {
+        .search-input {
             flex-grow: 1;
             border: none;
-            height: 100%;
-            font-size: 16px;
             outline: none;
-            color: #202124;
+            font-size: 16px;
+            color: #000;
         }
 
-        /* Action Buttons */
-        .button-group {
+        .buttons-container {
             margin-top: 25px;
+            display: flex;
+            gap: 12px;
         }
 
         .btn {
@@ -136,30 +116,32 @@
             border-radius: 4px;
             color: #3c4043;
             font-size: 14px;
-            margin: 0 6px;
             padding: 0 16px;
-            height: 36px;
             line-height: 27px;
+            height: 36px;
+            min-width: 54px;
+            text-align: center;
             cursor: pointer;
+            user-select: none;
         }
 
         .btn:hover {
-            border: 1px solid #dadce0;
-            color: #202124;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+            background-image: -webkit-linear-gradient(top,#f8f8f8,#f1f1f1);
             background-color: #f8f9fa;
+            border: 1px solid #c6c6c6;
+            color: #222;
         }
 
-        /* Footer Section */
         footer {
             background: #f2f2f2;
             color: #70757a;
             font-size: 14px;
-            border-top: 1px solid #e4e4e4;
         }
 
         .footer-location {
             padding: 15px 30px;
-            border-bottom: 1px solid #e4e4e4;
+            border-bottom: 1px solid #dadce0;
         }
 
         .footer-links {
@@ -169,85 +151,64 @@
             flex-wrap: wrap;
         }
 
+        .footer-links-left, .footer-links-right {
+            display: flex;
+            gap: 25px;
+        }
+
         .footer-links a {
             color: #70757a;
             text-decoration: none;
-            margin-right: 30px;
         }
 
         .footer-links a:hover {
             text-decoration: underline;
         }
-
-        .footer-right a {
-            margin-right: 0;
-            margin-left: 30px;
-        }
     </style>
 </head>
 <body>
-<img src= "icon-192.png">
-    <!-- Header Navigation -->
     <header>
-        <a href="#">Gmail</a>
-        <a href="#">Images</a>
-        <a href="#" class="sign-in-btn">Sign in</a>
+        <div class="nav-links">
+            <a href="https://google.com">Gmail</a>
+            <a href="https://google.com">Images</a>
+        </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Colorful Logo -->
+    <main class="main-container">
+        <!-- Google styled custom name -->
         <div class="logo">
-    <span class="g1">S</span>
-    <span class="o1">h</span>
-    <span class="o2">r</span>
-    <span class="g2">e</span>
-    <span class="l">y</span>
-    <span class="e">a</span>
-    <span class="g1">n</span>
-    <span class="o1">s</span>
-    <span class="o2">.</span>
-    <span class="g2">A</span>
-    <span class="l">G</span>
-</div>
-<form class="search-form" action="https://www.google.com/search" method="GET">
-    <div class="search-box">
-        <span class="search-icon">🔍</span>
-        <input type="text" name="q" autocomplete="off" autofocus>
-    </div>
+            <span class="b-blue">S</span><span class="b-red">h</span><span class="b-yellow">r</span><span class="b-blue">e</span><span class="b-green">y</span><span class="b-red">a</span><span class="b-blue">n</span><span class="b-green">s</span><span class="b-yellow">.</span><span class="b-blue">A</span><span class="b-red">G</span>
+        </div>
 
-    <div class="button-group">
-        <button type="submit" class="btn">Google Search</button>
-        <button type="button" class="btn" onclick="location.href='https://www.google.com'">
-            I'm Feeling Lucky
-        </button>
-    </div>
-</form>
+        <!-- Redirects exactly to live Google Search functionality -->
+        <form class="search-form" action="https://google.com" method="GET">
+            <div class="search-box">
+                <svg class="search-icon" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
+                <input class="search-input" type="text" name="q" autofocus aria-label="Search">
+            </div>
+            <div class="buttons-container">
+                <button class="btn" type="submit">Google Search</button>
+                <button class="btn" type="submit" name="btnI" value="1">I'm Feeling Lucky</button>
+            </div>
+        </form>
     </main>
 
-    <!-- Footer Links -->
     <footer>
-        <div class="footer-location">Earth</div>
+        <div class="footer-location">India</div>
         <div class="footer-links">
-            <div class="footer-left">
-                <a href="#">About</a>
-                <a href="#">Advertising</a>
-                <a href="#">Business</a>
-                <a href="#">How Search works</a>
+            <div class="footer-links-left">
+                <a href="https://about.google">About</a>
+                <a href="https://advertising.google">Advertising</a>
+                <a href="https://business.google">Business</a>
+                <a href="https://google.com">How Search works</a>
             </div>
-            <div class="footer-right">
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-                <a href="#">Settings</a>
+            <div class="footer-links-right">
+                <a href="https://google.com">Privacy</a>
+                <a href="https://google.com">Terms</a>
+                <a href="https://google.com">Settings</a>
             </div>
         </div>
     </footer>
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
-    navigator.serviceWorker.register("service-worker.js");
-  });
-}
-</script>
+
 </body>
 </html>
