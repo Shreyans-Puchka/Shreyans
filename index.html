@@ -48,22 +48,23 @@
             align-items: center;
             flex-grow: 1;
             justify-content: center;
-            margin-top: -50px;
+            margin-top: -30px;
         }
 
-        .logo {
-            font-size: 90px;
-            font-weight: 500;
-            letter-spacing: -2px;
+        .logo-container {
             margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Adjusted logo size: shortened from 120px to 90px to match standard sizing */
+        .logo-image {
+            height: 90px; 
+            width: auto;
+            object-fit: contain;
             user-select: none;
         }
-
-        /* Google branding colors for Shreyans.AG */
-        .b-blue { color: #4285F4; }
-        .b-red { color: #EA4335; }
-        .b-yellow { color: #FBBC05; }
-        .b-green { color: #34A853; }
 
         .search-form {
             width: 100%;
@@ -151,11 +152,6 @@
             flex-wrap: wrap;
         }
 
-        .footer-links-left, .footer-links-right {
-            display: flex;
-            gap: 25px;
-        }
-
         .footer-links a {
             color: #70757a;
             text-decoration: none;
@@ -164,9 +160,15 @@
         .footer-links a:hover {
             text-decoration: underline;
         }
+
+        .footer-links-left, .footer-links-right {
+            display: flex;
+            gap: 25px;
+        }
     </style>
 </head>
 <body>
+
     <header>
         <div class="nav-links">
             <a href="https://google.com">Gmail</a>
@@ -175,12 +177,10 @@
     </header>
 
     <main class="main-container">
-        <!-- Google styled custom name -->
-        <div class="logo">
-            <span class="b-blue">S</span><span class="b-red">h</span><span class="b-yellow">r</span><span class="b-blue">e</span><span class="b-green">y</span><span class="b-red">a</span><span class="b-blue">n</span><span class="b-green">s</span><span class="b-yellow">.</span><span class="b-blue">A</span><span class="b-red">G</span>
+        <div class="logo-container">
+            <img class="logo-image" src="icon-512.png" alt="Shreyans.AG Logo">
         </div>
 
-        <!-- Redirects exactly to live Google Search functionality -->
         <form class="search-form" action="https://google.com" method="GET">
             <div class="search-box">
                 <svg class="search-icon" focusable="false" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg>
